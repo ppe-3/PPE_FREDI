@@ -32,8 +32,7 @@ class DemandeurDAO {
 
 
   function find($mail_demandeur,$motdepasse_demandeur) {
-    print_r($mail_demandeur);
-    print_r($motdepasse_demandeur);
+
     $sql = "select * from demandeur where mail_demandeur=:mail_demandeur and motdepasse_demandeur=:motdepasse_demandeur";
     try {
       $sth = self::get_connexion()->prepare($sql);
