@@ -2,10 +2,10 @@
 
 Fichiers :
 
-- structure.sql         	-->    (Strcture) 
-- data.sql  				      -->    (Données) 
+- structure.sql         -->    (Strcture) 
+- data.sql          -->    (Données) 
 
-- fredi.sql             	-->    (Structure + Données) 
+- fredi.sql         -->    (Structure + Données) 
 
 
 Etape :
