@@ -3,7 +3,7 @@
 Fichiers :
 
 - structure.sql         	-->    (Strcture) 
-- data.sql  				-->    (Données) 
+- data.sql  				      -->    (Données) 
 
 - fredi.sql             	-->    (Structure + Données) 
 
