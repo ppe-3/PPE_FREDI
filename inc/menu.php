@@ -45,7 +45,7 @@
               <a class="nav-link js-scroll-trigger" href="logout.php">Déconnexion</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Mon compte</a>
+              <a class="nav-link js-scroll-trigger" href="mon_compte.php">Mon compte</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="listeBordereaux.php">Note de frais</a>

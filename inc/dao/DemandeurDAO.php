@@ -53,7 +53,21 @@ class DemandeurDAO {
     return $Demandeur; // Retourne l'objet métier
   }
 
+  function find2($id_demandeur) {
+    $sql = "select * from demandeur where id_demandeur=:id_demandeur";
+    try {
+      $sth = self::get_connexion()->prepare($sql);
+      $sth->execute(array(":id_demandeur" => $id_demandeur));
+      $row = $sth->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+      throw new Exception("Erreur lors de la requête SQL : " . $e->getMessage());
+    }
+    $Demandeur = new DemandeurDAO($row);
+
   
+    return $Demandeur; 
+  }
+
   function findAll() {
     $sql = "select * from demandeur";
     try {
