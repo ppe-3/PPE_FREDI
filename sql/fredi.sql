@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 06 mars 2018 à 13:18
+-- Généré le :  mar. 13 mars 2018 à 13:19
 -- Version du serveur :  5.7.17
--- Version de PHP :  7.1.3
+-- Version de PHP :  5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,18 +31,12 @@ USE `fredi`;
 --
 
 CREATE TABLE `adherent` (
-  `numlicense_adherent` int(11) NOT NULL,
-  `id_demandeur` int(11) NOT NULL,
-  `id_club` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `adherent`
---
-
-INSERT INTO `adherent` (`numlicense_adherent`, `id_demandeur`, `id_club`) VALUES
-(1, 7, 1),
-(123, 1, 1);
+  `numlicense_adherent` varchar(100) DEFAULT NULL,
+  `id_demandeur` int(11) DEFAULT NULL,
+  `nom_ad` varchar(30) DEFAULT NULL,
+  `prenom_ad` varchar(30) DEFAULT NULL,
+  `date_naissance_ad` date DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -165,12 +159,10 @@ CREATE TABLE `lignefrais` (
 --
 
 INSERT INTO `lignefrais` (`id_lf`, `datetrajet_lf`, `trajet_lf`, `km_lf`, `couttrajet_lf`, `coutpeage_lf`, `coutrepas_lf`, `couthebergement_lf`, `annee_indemnite`, `id_motif`, `id_demandeur`, `annees`) VALUES
-(1, '2017-10-04', '', 10, '0', '45', '65', '75', 2017, 1, 0, ''),
 (2, '2016-10-12', '', 42, '0', '56', '75', '485', 2016, 2, 0, ''),
 (3, '2017-12-06', 'Lyon-Bordeaux', 12, '55', '56', '369', '26', NULL, 1, 0, ''),
 (4, '2018-03-08', 'lala', 150, '10', '10', '10', '10', NULL, 2, 0, ''),
 (5, '2018-01-04', 'toulouse-montauban', 10, '10', '10', '10', '10', NULL, 1, 8, '2018'),
-(7, '2018-03-08', 'q', 1, '1', '1', '1', '1', NULL, 1, 8, '2018'),
 (8, '2018-03-15', 'AA', 2, '2', '2', '2', '2', NULL, 2, 8, '2018');
 
 -- --------------------------------------------------------
@@ -254,14 +246,6 @@ INSERT INTO `representant` (`id_representant`, `id_demandeur`, `numlicense_adher
 --
 -- Index pour les tables déchargées
 --
-
---
--- Index pour la table `adherent`
---
-ALTER TABLE `adherent`
-  ADD PRIMARY KEY (`numlicense_adherent`,`id_demandeur`),
-  ADD KEY `FK_ADHERENT_id_demandeur` (`id_demandeur`),
-  ADD KEY `FK_ADHERENT_id_club` (`id_club`);
 
 --
 -- Index pour la table `avancer`
@@ -369,13 +353,6 @@ ALTER TABLE `representant`
 --
 -- Contraintes pour les tables déchargées
 --
-
---
--- Contraintes pour la table `adherent`
---
-ALTER TABLE `adherent`
-  ADD CONSTRAINT `FK_ADHERENT_id_club` FOREIGN KEY (`id_club`) REFERENCES `club` (`id_club`),
-  ADD CONSTRAINT `FK_ADHERENT_id_demandeur` FOREIGN KEY (`id_demandeur`) REFERENCES `demandeur` (`id_demandeur`);
 
 --
 -- Contraintes pour la table `avancer`

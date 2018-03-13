@@ -32,7 +32,7 @@ class LignefraisDAO {
 
 
   function find($id_lignefrais) {
-    $sql = "select * from adherent where id_lignefrais=:id_lignefrais";
+    $sql = "select * from lignefrais where id_lf=:id_lignefrais";
     try {
       $sth = self::get_connexion()->prepare($sql);
       $sth->execute(array(":id_lignefrais" => $id_lignefrais));
@@ -80,6 +80,15 @@ class LignefraisDAO {
       $tableau[] = new Lf($row);
     }
     return $tableau; // Retourne un tableau d'objets
+  }
+
+  function delete($id) {
+    $sql = "DELETE FROM lignefrais WHERE id_lf =:id ";
+  
+      $sth = self::get_connexion()->prepare($sql);
+      $sth->execute(array(":id" => $id));
+      $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+   
   }
 
 
